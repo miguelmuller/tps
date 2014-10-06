@@ -1,18 +1,13 @@
 clear all;
+page_output_immediately(1);
+source ./redesNeuronalesLib.m;
 
-1;
+# Parameters
+M = 3;
 
-function y = signo(x)
- x(x>0) = 1; 
- x(x<=0) = -1; 
- y = x;
-endfunction
-
-# Preparo las cosas (solo tamaños)
+# Get images information
 imWidth  = size(imread('./torero.bmp'))(1);
 imHeigth  = size(imread('./torero.bmp'))(2);
-# Cantidad de vectores de prueba que voy a incluir
-M = 3;
 # Meto en matriz, serializo y convierto ceros en -1
 p1 = signo(imread('./torero.bmp')(:)); 
 p2 = signo(imread('./paloma.bmp')(:)); 

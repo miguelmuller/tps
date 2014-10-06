@@ -1,6 +1,5 @@
 # Redes Neuronales lib
 
-
 function y = signo(x)
  x(x>0) = 1; 
  x(x<=0) = -1; 
@@ -66,7 +65,7 @@ function  Sout = changeState3D(Sin , posx, posy, T)
       instances = 1;
     endif
     for i = [ 1 : instances ]
-      Sout = changeState(Sin(:,:,i) , posx, posy, T);
+      Sout(:,:,i) = changeState(Sin(:,:,i) , posx, posy, T);
     endfor
 endfunction
 
@@ -82,7 +81,7 @@ endfunction
 
 function M = calculateNetMagnetization3D(S)
     # Code to make this function 3d matrices friendly. 
-    if( size( size(S) ) == 3 )
+    if( size(size(S))(2) == 3 )
       instances = size(S)(3);
       M = zeros(instances,1);
     else
