@@ -4,12 +4,12 @@ source ./redesNeuronalesLib.m;
 
 # Parameters
 N = 100; # amount of neurons
-I = 5# amount of instances 
-steps = 10*N*N;  # planteo pasar 100 veces por todos los elementos (esto es 25000 = 50*50*10) . Paso una vez por cada elemento con cada decimo de temperatura.
+I = 5; # amount of instances 
+steps = 100*N*N;  # planteo pasar 100 veces por todos los elementos (esto es 25000 = 50*50*10) . Paso una vez por cada elemento con cada decimo de temperatura.
 time = [0 : steps-1]; # podrias pensarlo en segundos (o milisegundos)
 
 # Temperature vector function
-T0 = 3; # temperatura inicial, podrias pensarlo en Celsius
+T0 = 2.8; # temperatura inicial, podrias pensarlo en Celsius
 k = T0 / (steps-1); # Lo llevas a cero en el valor maximo de time. O sea el ultimo valor de temperatura es 0. 
 temp = T0 - k * time ;
 Magnet = zeros(I,steps);

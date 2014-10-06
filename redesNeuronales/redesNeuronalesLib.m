@@ -11,6 +11,12 @@ function S = createStateMatrix(N)
   S = signo(stdnormal_rnd(N));
 endfunction
 
+function S = createStateMatrix3D(N,I)
+  for i = [1:I]
+    S(:,:,i) = createStateMatrix(N);
+  endfor
+endfunction
+
 # circular increment and decrement
 function n = next(curr, N)
   if(curr == N)
@@ -59,7 +65,7 @@ endfunction
 # Returning the refreshed S matrix instead
 function  Sout = changeState3D(Sin , posx, posy, T)
     # Code to make this function 3d matrices friendly. 
-    if( size( size(Sin) ) == 3 )
+    if( size(size(Sin))(2) == 3 )
       instances = size(Sin)(3);
     else
       instances = 1;
